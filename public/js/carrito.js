@@ -62,10 +62,10 @@ function renderProductos() {
     div.className = "product-card";
 
     div.innerHTML = `
-      <img src="${p.imagen}" class="h-40 mx-auto object-contain mb-4">
+      <img src="${p.imagen}" class="img-card">
 
-      <h3 class="text-sm">${p.nombre}</h3>
-      <p class="text-gray-500 mb-2">$${p.precio}</p>
+      <h3 class="h3-card">${p.nombre}</h3>
+      <p class="p-card">$${p.precio}</p>
     `;
 
     const btn = document.createElement("button");

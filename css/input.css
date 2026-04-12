@@ -212,4 +212,13 @@
     @apply text-red-500;
   }
 
+  .img-card{
+    @apply h-40 mx-auto object-contain mb-4;
+  }
+  .h3-card{
+    @apply text-sm;
+  }
+  .p-card{
+    @apply text-gray-500 mb-2;
+  }
 }
