@@ -1,6 +1,6 @@
 
 let carrito = [];
-let categoriaActiva = "todos";
+let categoriaActiva = "Todos";
 
 // DOM
 const contenedorProductos = document.getElementById("productos");
@@ -52,7 +52,7 @@ function renderCategorias() {
 function renderProductos() {
   contenedorProductos.innerHTML = "";
 
-  const filtrados = categoriaActiva === "todos"
+  const filtrados = categoriaActiva === "Todos"
     ? productos
     : productos.filter(p => p.categoria === categoriaActiva);
 
