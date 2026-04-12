@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+   body { font-family: 'Inter', sans-serif; }
+    h1, h2 { font-family: 'Playfair Display', serif; }
+
+   .body{
+      @apply bg-[#f6f4f2] text-gray-800;
+   }
+
+   .header{
+      @apply flex justify-between items-center px-8 py-6;
+   }
+
+   .h1{
+      @apply tracking-[0.3em] text-lg;
+   }
+
+   .btn-carrito{
+      @apply relative text-xl text-gray-400 hover:text-gray-700 hover:scale-110 transition;
+   }
+   .cont-carrito{
+      @apply absolute -top-2 -right-2 bg-black text-white text-xs px-2 rounded-full;
+   }
+
+
+   /* CONTENEDOR */
+.hero{
+      @apply px-6 md:px-16 py-10;
+   }
+/* CAJA */
+.hero-box {
+  @apply rounded-3xl overflow-hidden relative;
+}
+
+/* IMAGEN */
+.hero-img {
+  @apply w-full h-[500px] object-cover;
+}
+
+/* OVERLAY */
+.hero-overlay {
+  @apply absolute inset-0 bg-white/40;
+}
+
+/* CONTENIDO */
+.hero-content {
+  @apply absolute left-10 top-1/2 -translate-y-1/2 max-w-lg;
+}
+
+/* TEXTO */
+.hero-title {
+  @apply text-4xl md:text-5xl mb-4;
+}
+
+.hero-text {
+  @apply mb-6 text-gray-700;
+}
+
+/* CATEGORÍAS */
+.categorias {
+  @apply px-6 md:px-16 py-6 flex gap-3 flex-wrap justify-center;
+}
+
+/* PRODUCTOS */
+.productos {
+  @apply px-6 md:px-16 pb-16;
+}
+
+.productos-grid {
+  @apply grid md:grid-cols-3 gap-6;
+}
+
+/* FOOTER */
+.footer {
+  @apply bg-white border-t mt-10;
+}
+
+.footer-grid {
+  @apply px-6 md:px-16 py-12 grid md:grid-cols-3 gap-10 text-sm;
+}
+
+.footer-logo {
+  @apply tracking-[0.3em] mb-4;
+}
+
+.footer-text {
+  @apply text-gray-500;
+}
+
+.footer-title {
+  @apply mb-4 font-medium;
+}
+
+.footer-links {
+  @apply space-y-2 text-gray-500;
+}
+
+.footer-link {
+  @apply hover:text-black transition;
+}
+
+.footer-copy {
+  @apply text-center text-xs text-gray-400 pb-6;
+}
+
+/* BOTÓN WHATSAPP */
+.btn-wsp {
+  @apply fixed bottom-6 right-6 w-14 h-14 flex items-center justify-center 
+         rounded-full bg-black text-white shadow-lg hover:scale-110 transition text-xl;
+}
+
+/* PANEL CARRITO */
+.panel-carrito {
+  @apply fixed top-0 right-0 w-80 h-full bg-white shadow-xl p-6 
+         transition-transform duration-300;
+}
+
+/* HEADER CARRITO */
+.cart-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.cart-title {
+  @apply text-xl;
+}
+
+/* BOTÓN CERRAR */
+.btn-close {
+  @apply text-gray-400 hover:text-black text-lg transition;
+}
+
+/* ITEMS */
+.cart-items {
+  @apply mb-4;
+}
+
+/* TOTAL */
+.cart-total {
+  @apply flex justify-between mb-4 font-semibold;
+}
+
+/* MODAL */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/40 hidden items-center justify-center z-50;
+}
+
+.modal-box {
+  @apply bg-white rounded-2xl p-6 max-w-md w-full relative;
+}
+
+.modal-title {
+  @apply text-xl mb-3;
+}
+
+.modal-text {
+  @apply text-gray-600;
+}
+
+/* BOTÓN CERRAR MODAL */
+.btn-close-modal {
+  @apply absolute top-4 right-4 text-gray-400 hover:text-black transition;
+}

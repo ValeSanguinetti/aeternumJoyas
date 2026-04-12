@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aeternum</title>
+  <!-- tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/output.css">
+</head>
+
+<body class="body">
+
+<!-- NAV -->
+<header class="header">
+  <h1 class="h1">AETERNUM</h1>
+
+<button onclick="toggleCarrito()" 
+  class="btn-carrito">
+
+  <i class="fa-solid fa-bag-shopping"></i>
+
+  <span id="contadorCarrito"
+    class="cont-carrito">
+    0
+  </span>
+
+</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+
+    <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d"
+         class="hero-img">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h2 class="hero-title">
+        Joyas que duran<br>para siempre
+      </h2>
+
+      <p class="hero-text">
+        Plata 925 · Acero quirúrgico · Diseños únicos
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORÍAS -->
+<section class="categorias" id="categorias"></section>
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <div id="productos" class="productos-grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+
+    <!-- marca -->
+    <div>
+      <h3 class="footer-logo">AETERNUM</h3>
+      <p class="footer-text">
+        Joyas delicadas y atemporales para acompañarte todos los días.
+      </p>
+    </div>
+
+    <!-- info -->
+    <div>
+      <h4 class="footer-title">Información</h4>
+      <ul class="footer-links">
+        <li><button onclick="abrirModal('envios')" class="footer-link">Envíos</button></li>
+        <li><button onclick="abrirModal('cambios')" class="footer-link">Cambios y devoluciones</button></li>
+        <li><button onclick="abrirModal('cuidados')" class="footer-link">Cuidados de las joyas</button></li>
+      </ul>
+    </div>
+
+    <!-- contacto -->
+    <div>
+      <h4 class="footer-title">Contacto</h4>
+      <ul class="footer-links">
+        <li>Montevideo, Uruguay</li>
+        <li>
+          <a href="https://wa.me/59800000000" class="footer-link">
+            WhatsApp
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">
+            Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-copy">
+    © 2026 Aeternum — Todos los derechos reservados
+  </div>
+
+</footer>
+
+<!-- BOTÓN WHATSAPP --> 
+<a href="https://wa.me/59800000000" class="btn-wsp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- CARRITO -->
+<div id="panelCarrito" class="panel-carrito" style="transform: translateX(100%);">
+
+  <!-- header -->
+  <div class="cart-header">
+    <h2 class="cart-title">Tu carrito</h2>
+
+    <button onclick="toggleCarrito()" class="btn-close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div id="carrito" class="cart-items"></div>
+
+  <div class="cart-total">
+    <span>Total:</span>
+    <span id="total">$0</span>
+  </div>
+
+  <button onclick="enviarPedido()" class="btn-primary">
+    Finalizar compra
+  </button>
+
+</div>
+
+<!-- MODAL -->
+<div id="modalInfo" class="modal-overlay">
+
+  <div class="modal-box">
+
+    <button onclick="cerrarModal()" class="btn-close-modal">
+      ✕
+    </button>
+
+    <h2 id="modalTitulo" class="modal-title"></h2>
+    <p id="modalTexto" class="modal-text"></p>
+
+  </div>
+
+</div>
+<script src="data/productos.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/carrito.js"></script>
+</body>
+</html>
