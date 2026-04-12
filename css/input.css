@@ -162,3 +162,54 @@
 .btn-close-modal {
   @apply absolute top-4 right-4 text-gray-400 hover:text-black transition;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  /* ===== CATEGORÍAS ===== */
+  .cat-btn {
+    @apply px-4 py-2 rounded-full text-sm transition;
+  }
+
+  .cat-btn-active {
+    @apply bg-black text-white shadow;
+  }
+
+  .cat-btn-inactive {
+    @apply bg-white text-gray-600 border;
+  }
+
+  /* ===== PRODUCTO CARD ===== */
+  .product-card {
+    @apply bg-white rounded-2xl p-4 text-center hover:shadow-lg transition;
+  }
+
+  .product-btn {
+    @apply w-full bg-[#8a8f76] text-white py-2 rounded-lg hover:opacity-90 transition;
+  }
+
+  /* ===== CARRITO ITEM ===== */
+  .cart-item {
+    @apply flex justify-between items-center mb-3 text-sm;
+  }
+
+  .cart-item-left {
+    @apply flex gap-2 items-center;
+  }
+
+  .cart-img {
+    @apply w-10 h-10 object-cover rounded;
+  }
+
+  .cart-item-right {
+    @apply flex gap-2 items-center;
+  }
+
+  .cart-remove {
+    @apply text-red-500;
+  }
+
+}

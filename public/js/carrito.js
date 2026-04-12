@@ -32,12 +32,11 @@ function renderCategorias() {
 
     btn.textContent = cat;
 
-    btn.className = `
-      px-4 py-2 rounded-full text-sm transition
-      ${categoriaActiva === cat
-        ? "bg-black text-white shadow"
-        : "bg-white text-gray-600 border"}
-    `;
+    btn.className = "cat-btn " +
+      (categoriaActiva === cat
+        ? "cat-btn-active"
+        : "cat-btn-inactive");
+
 
     btn.onclick = () => {
       categoriaActiva = cat;
@@ -60,20 +59,21 @@ function renderProductos() {
   filtrados.forEach(p => {
     const div = document.createElement("div");
 
-    div.className = "bg-white rounded-2xl p-4 text-center hover:shadow-lg transition";
+    div.className = "product-card";
 
     div.innerHTML = `
       <img src="${p.imagen}" class="h-40 mx-auto object-contain mb-4">
 
       <h3 class="text-sm">${p.nombre}</h3>
       <p class="text-gray-500 mb-2">$${p.precio}</p>
-
-      <button onclick='agregarAlCarrito(${JSON.stringify(p)})'
-        class="w-full bg-[#8a8f76] text-white py-2 rounded-lg hover:opacity-90 transition">
-        Agregar
-      </button>
     `;
 
+    const btn = document.createElement("button");
+    btn.textContent = "Agregar";
+    btn.className = "product-btn";
+    btn.onclick = () => agregarAlCarrito(p);
+
+    div.appendChild(btn);
     contenedorProductos.appendChild(div);
   });
 }
@@ -103,18 +103,28 @@ function renderCarrito() {
   carrito.forEach((p, i) => {
     total += p.precio;
 
-    contenedor.innerHTML += `
-      <div class="flex justify-between items-center mb-3 text-sm">
-        <div class="flex gap-2 items-center">
-          <img src="${p.imagen}" class="w-10 h-10 object-cover rounded">
-          <span>${p.nombre}</span>
-        </div>
-        <div class="flex gap-2 items-center">
-          <span>$${p.precio}</span>
-          <button onclick="eliminarDelCarrito(${i})" class="text-red-500">✕</button>
-        </div>
+    const item = document.createElement("div");
+    item.className = "cart-item";
+
+    item.innerHTML = `
+      <div class="cart-item-left">
+        <img src="${p.imagen}" class="cart-img">
+        <span>${p.nombre}</span>
+      </div>
+
+      <div class="cart-item-right">
+        <span>$${p.precio}</span>
       </div>
     `;
+
+    const btn = document.createElement("button");
+    btn.textContent = "✕";
+    btn.className = "cart-remove";
+    btn.onclick = () => eliminarDelCarrito(i);
+
+    item.querySelector(".cart-item-right").appendChild(btn);
+
+    contenedor.appendChild(item);
   });
 
   totalEl.textContent = "$" + total;
