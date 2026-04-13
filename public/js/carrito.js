@@ -56,6 +56,7 @@ function abrirModalProducto(producto) {
   document.getElementById("modalImg").src = producto.imagen;
   document.getElementById("modalNombre").textContent = producto.nombre;
   document.getElementById("modalPrecio").textContent = "$" + producto.precio;
+  document.getElementById("modalTipo").textContent = producto.tipo;
 
   const btn = document.getElementById("modalBtn");
   btn.onclick = () => {

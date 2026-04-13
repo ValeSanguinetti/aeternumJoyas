@@ -282,7 +282,9 @@
   .modal-precio {
     @apply text-gray-500 mb-4;
   }
-
+.modal-tipo {
+  @apply text-xs text-gray-400 tracking-wide uppercase mb-4;
+}
   .modal-btn {
     @apply w-full bg-black text-white py-2 rounded-lg hover:opacity-90 transition;
   }
@@ -290,4 +292,5 @@
   .modal-close {
     @apply absolute top-3 right-3 text-gray-500 text-lg;
   }
+
 }
