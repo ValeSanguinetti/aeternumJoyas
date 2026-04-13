@@ -1,6 +1,8 @@
 
 let carrito = [];
 let categoriaActiva = "Todos";
+let paginaActual = 1;
+const productosPorPagina = 6;
 
 // DOM
 const contenedorProductos = document.getElementById("productos");
@@ -38,11 +40,12 @@ function renderCategorias() {
         : "cat-btn-inactive");
 
 
-    btn.onclick = () => {
-      categoriaActiva = cat;
-      renderCategorias();
-      renderProductos();
-    };
+   btn.onclick = () => {
+  categoriaActiva = cat;
+  paginaActual = 1; 
+  renderCategorias();
+  renderProductos();
+};
 
     contenedorCategorias.appendChild(btn);
   });
@@ -56,14 +59,18 @@ function renderProductos() {
     ? productos
     : productos.filter(p => p.categoria === categoriaActiva);
 
-  filtrados.forEach(p => {
+  // 🔥 PAGINACIÓN
+  const inicio = (paginaActual - 1) * productosPorPagina;
+  const fin = inicio + productosPorPagina;
+  const productosPagina = filtrados.slice(inicio, fin);
+
+  productosPagina.forEach(p => {
     const div = document.createElement("div");
 
     div.className = "product-card";
 
     div.innerHTML = `
       <img src="${p.imagen}" class="img-card">
-
       <h3 class="h3-card">${p.nombre}</h3>
       <p class="p-card">$${p.precio}</p>
     `;
@@ -76,8 +83,38 @@ function renderProductos() {
     div.appendChild(btn);
     contenedorProductos.appendChild(div);
   });
+
+  renderPaginacion(filtrados.length);
 }
 
+function renderPaginacion(totalProductos) {
+  let paginacion = document.getElementById("paginacion");
+
+  if (!paginacion) {
+    paginacion = document.createElement("div");
+    paginacion.id = "paginacion";
+    paginacion.className = "paginacion";
+    contenedorProductos.after(paginacion);
+  }
+
+  paginacion.innerHTML = "";
+
+  const totalPaginas = Math.ceil(totalProductos / productosPorPagina);
+
+  for (let i = 1; i <= totalPaginas; i++) {
+    const btn = document.createElement("button");
+
+    btn.textContent = i;
+    btn.className = "page-btn " + (i === paginaActual ? "active" : "");
+
+    btn.onclick = () => {
+      paginaActual = i;
+      renderProductos();
+    };
+
+    paginacion.appendChild(btn);
+  }
+}
 // Agregar
 function agregarAlCarrito(producto) {
   carrito.push(producto);
