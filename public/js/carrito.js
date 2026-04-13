@@ -143,7 +143,7 @@ function enviarPedido() {
   const total = carrito.reduce((acc, p) => acc + p.precio, 0);
   mensaje += `%0ATotal: $${total}`;
 
-  window.open(`https://wa.me/59800000000?text=${mensaje}`);
+  window.open(`https://wa.me/59893737340?text=${mensaje}`);
 }
 
 // INIT
