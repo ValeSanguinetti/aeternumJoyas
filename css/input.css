@@ -36,7 +36,7 @@
 
 /* IMAGEN */
 .hero-img {
-  @apply w-full h-[500px] object-cover;
+  @apply w-full h-[500px] object-cover object-[50%_20%];
 }
 
 /* OVERLAY */
