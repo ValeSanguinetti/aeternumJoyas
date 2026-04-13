@@ -1,5 +1,5 @@
 const productos = [
-  { nombre: "Anillo cruz infinito", precio: 800,imagen: "img/anillo1.jpg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  { nombre: "Anillo cruz infinito", precio: 800,imagen: "img/anillo1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
   "img/anillo1.jpg",
 ]},
   { nombre: "Anillo minimalista", precio: 900, imagen: "img/anillo2.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
@@ -48,9 +48,9 @@ const productos = [
   "img/pulsera2-2.jpg"
 ] },
   { nombre: "Pulsera ojo turco", precio: 2433, imagen: "img/Pulseras/pulseraOjoTurco/img1.jpeg", categoria: "Pulseras",tipo: "Plata 925", imagenes: [
-  "img/Pulseras/pulseraOjoTurco/img1.jpg",
-  "img/Pulseras/pulseraOjoTurco/img2.jpg",
-  "img/Pulseras/pulseraOjoTurco/img3.jpg",
-  "img/Pulseras/pulseraOjoTurco/img4.jpg"
+  "img/Pulseras/pulseraOjoTurco/img1.jpeg",
+  "img/Pulseras/pulseraOjoTurco/img2.jpeg",
+  "img/Pulseras/pulseraOjoTurco/img3.jpeg",
+  "img/Pulseras/pulseraOjoTurco/img4.jpeg"
 ] },
 ];
