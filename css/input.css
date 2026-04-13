@@ -18,7 +18,7 @@
    }
 
    .btn-carrito{
-      @apply relative text-xl text-gray-400 hover:text-gray-700 hover:scale-110 transition;
+      @apply relative text-xl text-[#8a8f76] hover:text-gray-700 hover:scale-110 transition;
    }
    .cont-carrito{
       @apply absolute -top-2 -right-2 bg-black text-white text-xs px-2 rounded-full;
