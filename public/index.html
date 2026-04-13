@@ -176,7 +176,15 @@
 
     <button onclick="cerrarModalProducto()" class="modal-close">✕</button>
 
-    <img id="modalImg" class="modal-img">
+   <div class="modal-img-container">
+
+  <button class="modal-arrow left" onclick="prevImg()">‹</button>
+
+  <img id="modalImg" class="modal-img">
+
+  <button class="modal-arrow right" onclick="nextImg()">›</button>
+
+</div>
 
     <h3 id="modalNombre" class="modal-nombre"></h3>
     <p id="modalPrecio" class="modal-precio"></p>

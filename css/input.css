@@ -163,7 +163,21 @@
 .modal-text {
   @apply text-gray-600;
 }
+ .modal-img-container {
+    @apply relative w-full flex items-center justify-center mb-4;
+  }
 
+  .modal-arrow {
+    @apply absolute top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black w-8 h-8 rounded-full shadow flex items-center justify-center;
+  }
+
+  .modal-arrow.left {
+    @apply left-2;
+  }
+
+  .modal-arrow.right {
+    @apply right-2;
+  }
 /* BOTÓN CERRAR MODAL */
 .btn-close-modal {
   @apply absolute top-4 right-4 text-gray-400 hover:text-black transition;

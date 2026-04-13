@@ -3,6 +3,8 @@ let carrito = [];
 let categoriaActiva = "Todos";
 let paginaActual = 1;
 const productosPorPagina = 6;
+let imagenesProducto = [];
+let indiceImagen = 0;
 
 // DOM
 const contenedorProductos = document.getElementById("productos");
@@ -53,7 +55,10 @@ function renderCategorias() {
 function abrirModalProducto(producto) {
   const modal = document.getElementById("modalProducto");
 
-  document.getElementById("modalImg").src = producto.imagen;
+  imagenesProducto = producto.imagenes || [producto.imagen];
+  indiceImagen = 0;
+
+  document.getElementById("modalImg").src = imagenesProducto[indiceImagen];
   document.getElementById("modalNombre").textContent = producto.nombre;
   document.getElementById("modalPrecio").textContent = "$" + producto.precio;
   document.getElementById("modalTipo").textContent = producto.tipo;
@@ -66,7 +71,19 @@ function abrirModalProducto(producto) {
 
   modal.classList.add("active");
 }
+function nextImg() {
+  if (indiceImagen < imagenesProducto.length - 1) {
+    indiceImagen++;
+    document.getElementById("modalImg").src = imagenesProducto[indiceImagen];
+  }
+}
 
+function prevImg() {
+  if (indiceImagen > 0) {
+    indiceImagen--;
+    document.getElementById("modalImg").src = imagenesProducto[indiceImagen];
+  }
+}
 function cerrarModalProducto() {
   document.getElementById("modalProducto").classList.remove("active");
 }
