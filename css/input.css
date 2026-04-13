@@ -221,15 +221,26 @@
   .p-card{
     @apply text-gray-500 mb-2;
   }
-   .seo-text {
-    @apply mt-12 px-6 text-center;
+
+  .seo-luxury {
+    @apply py-20 px-6 bg-white;
   }
 
-  .seo-text h2 {
-    @apply text-xl md:text-2xl font-semibold text-gray-800;
+  .seo-luxury-container {
+    @apply max-w-2xl mx-auto text-center;
   }
 
-  .seo-text p {
-    @apply mt-3 text-sm md:text-base text-gray-500 max-w-xl mx-auto leading-relaxed;
+  .seo-eyebrow {
+    @apply text-xs tracking-[0.3em] text-gray-400 block mb-4;
   }
+
+  .seo-title {
+    @apply text-2xl md:text-3xl font-medium text-gray-900 leading-snug;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .seo-description {
+    @apply mt-6 text-gray-500 text-sm md:text-base leading-relaxed;
+  }
+
 }
