@@ -258,4 +258,36 @@
   .page-btn.active {
     @apply bg-black text-white border-black;
   }
+
+    .modal-producto {
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50 opacity-0 pointer-events-none transition;
+  }
+
+  .modal-producto.active {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  .modal-producto-box {
+    @apply bg-white rounded-2xl p-6 max-w-sm w-full text-center relative shadow-xl;
+  }
+
+  .modal-img {
+    @apply w-full h-64 object-contain mb-4;
+  }
+
+  .modal-nombre {
+    @apply text-lg font-medium text-gray-800;
+  }
+
+  .modal-precio {
+    @apply text-gray-500 mb-4;
+  }
+
+  .modal-btn {
+    @apply w-full bg-black text-white py-2 rounded-lg hover:opacity-90 transition;
+  }
+
+  .modal-close {
+    @apply absolute top-3 right-3 text-gray-500 text-lg;
+  }
 }

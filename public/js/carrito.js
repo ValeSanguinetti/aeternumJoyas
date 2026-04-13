@@ -50,7 +50,25 @@ function renderCategorias() {
     contenedorCategorias.appendChild(btn);
   });
 }
+function abrirModalProducto(producto) {
+  const modal = document.getElementById("modalProducto");
 
+  document.getElementById("modalImg").src = producto.imagen;
+  document.getElementById("modalNombre").textContent = producto.nombre;
+  document.getElementById("modalPrecio").textContent = "$" + producto.precio;
+
+  const btn = document.getElementById("modalBtn");
+  btn.onclick = () => {
+    agregarAlCarrito(producto);
+    cerrarModalProducto();
+  };
+
+  modal.classList.add("active");
+}
+
+function cerrarModalProducto() {
+  document.getElementById("modalProducto").classList.remove("active");
+}
 // Productos UI
 function renderProductos() {
   contenedorProductos.innerHTML = "";
@@ -59,7 +77,7 @@ function renderProductos() {
     ? productos
     : productos.filter(p => p.categoria === categoriaActiva);
 
-  // 🔥 PAGINACIÓN
+  // PAGINACIÓN
   const inicio = (paginaActual - 1) * productosPorPagina;
   const fin = inicio + productosPorPagina;
   const productosPagina = filtrados.slice(inicio, fin);
@@ -67,7 +85,8 @@ function renderProductos() {
   productosPagina.forEach(p => {
     const div = document.createElement("div");
 
-    div.className = "product-card";
+   div.className = "product-card";
+div.onclick = () => abrirModalProducto(p);
 
     div.innerHTML = `
       <img src="${p.imagen}" class="img-card">
@@ -78,7 +97,10 @@ function renderProductos() {
     const btn = document.createElement("button");
     btn.textContent = "Agregar";
     btn.className = "product-btn";
-    btn.onclick = () => agregarAlCarrito(p);
+    btn.onclick = (e) => {
+  e.stopPropagation();
+  agregarAlCarrito(p);
+};
 
     div.appendChild(btn);
     contenedorProductos.appendChild(div);
