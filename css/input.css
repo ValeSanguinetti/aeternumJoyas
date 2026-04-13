@@ -71,7 +71,13 @@
 .productos-grid {
   @apply grid md:grid-cols-3 gap-6;
 }
+ .btn-primary {
+    @apply w-full bg-black text-white py-3 rounded-xl text-sm tracking-wide transition;
+  }
 
+  .btn-primary:hover {
+    @apply opacity-90;
+  }
 /* FOOTER */
 .footer {
   @apply bg-white border-t mt-10;
