@@ -306,7 +306,7 @@
   @apply text-xs text-gray-400 tracking-wide uppercase mb-4;
 }
   .modal-btn {
-    @apply w-full bg-black text-white py-2 rounded-lg hover:opacity-90 transition;
+    @apply w-full bg-[#8a8f76] text-white py-2 rounded-lg hover:opacity-90 transition;
   }
 
   .modal-close {
