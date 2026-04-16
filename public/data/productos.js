@@ -48,6 +48,95 @@ const productos = [
   "img/anillos/CruzInfinito/img2.jpeg",
   "img/anillos/CruzInfinito/img3.jpeg",
 ]},
+  { nombre: "Anillo Blanco", precio: 540,imagen: "img/anillos/Blanco/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/Blanco/img1.jpeg",
+  "img/anillos/Blanco/img2.jpeg",
+  "img/anillos/Blanco/img3.jpeg",
+  "img/anillos/Blanco/img4.jpeg",
+]},
+  { nombre: "Anillo Triple", precio: 540,imagen: "img/anillos/Triple/img1.jpeg", categoria: "Anillos", tipo: "Acero Dorado", imagenes: [
+  "img/anillos/Triple/img1.jpeg",
+  "img/anillos/Triple/img2.jpeg",
+]},
+  { nombre: "Anillo Triangulo", precio: 447,imagen: "img/anillos/Triangulo/img1.jpeg", categoria: "Anillos", tipo: "Acero Dorado", imagenes: [
+  "img/anillos/Triangulo/img1.jpeg",
+  "img/anillos/Triangulo/img2.jpeg",
+  "img/anillos/Triangulo/img3.jpeg",
+]},
+  { nombre: "Anillo Corazón", precio: 428,imagen: "img/anillos/Corazon/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/Corazon/img1.jpeg",
+  "img/anillos/Corazon/img2.jpeg",
+  "img/anillos/Corazon/img3.jpeg",
+]},
+  { nombre: "Anillo Ajustable con Brillos", precio: 577,imagen: "img/anillos/AjustableBrillos/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/AjustableBrillos/img1.jpeg",
+  "img/anillos/AjustableBrillos/img2.jpeg",
+  "img/anillos/AjustableBrillos/img3.jpeg",
+  "img/anillos/AjustableBrillos/img4.jpeg",
+]},
+  { nombre: "Anillo Tulipán", precio: 577,imagen: "img/anillos/Tulipan/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/Tulipan/img1.jpeg",
+  "img/anillos/Tulipan/img2.jpeg",
+  "img/anillos/Tulipan/img3.jpeg",
+]},
+  { nombre: "Anillo Cruzado con Brillos", precio: 484,imagen: "img/anillos/CruzadoBrillos/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/CruzadoBrillos/img1.jpeg",
+  "img/anillos/CruzadoBrillos/img2.jpeg",
+  "img/anillos/CruzadoBrillos/img3.jpeg",
+]},
+  { nombre: "Anillo Abrazo con Cincronias", precio: 1889,imagen: "img/anillos/AbrazoCincronias/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/AbrazoCincronias/img1.jpeg",
+  "img/anillos/AbrazoCincronias/img2.jpeg",
+  "img/anillos/AbrazoCincronias/img3.jpeg",
+]},
+  { nombre: "Anillo Punto de Luz", precio: 1386,imagen: "img/anillos/PuntoLuz/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/PuntoLuz/img1.jpeg",
+  "img/anillos/PuntoLuz/img2.jpeg",
+  "img/anillos/PuntoLuz/img3.jpeg",
+]},
+  { nombre: "Anillo Valentino", precio: 1284,imagen: "img/anillos/Valentino/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/Valentino/img1.jpeg",
+  "img/anillos/Valentino/img2.jpeg",
+  "img/anillos/Valentino/img3.jpeg",
+  "img/anillos/Valentino/img4.jpeg",
+]},
+  { nombre: "Anillo Rectangular", precio: 1894,imagen: "img/anillos/Rectangular/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/Rectangular/img1.jpeg",
+  "img/anillos/Rectangular/img2.jpeg",
+  "img/anillos/Rectangular/img3.jpeg",
+]},
+  { nombre: "Anillo Flores", precio: 540,imagen: "img/anillos/Flores/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/Flores/img1.jpeg",
+  "img/anillos/Flores/img2.jpeg",
+  "img/anillos/Flores/img3.jpeg",
+]},
+  { nombre: "Anillo Ovalado Rústico", precio: 447,imagen: "img/anillos/OvaladoRustico/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/OvaladoRustico/img1.jpeg",
+  "img/anillos/OvaladoRustico/img2.jpeg",
+  "img/anillos/OvaladoRustico/img3.jpeg",
+]},
+  { nombre: "Anillo Ovalado", precio: 447,imagen: "img/anillos/OvaladoDorado/img1.jpeg", categoria: "Anillos", tipo: "Acero Dorado", imagenes: [
+  "img/anillos/OvaladoDorado/img1.jpeg",
+  "img/anillos/OvaladoDorado/img2.jpeg",
+]},
+  { nombre: "Collar Perla Blanca", precio: 2950,imagen: "img/Collares/PerlaBlanca/img1.jpeg", categoria: "Collares", tipo: "Plata 925", imagenes: [
+  "img/Collares/PerlaBlanca/img1.jpeg",
+  "img/Collares/PerlaBlanca/img2.jpeg",
+]},
+  { nombre: "Collar Perla Verde", precio: 2950,imagen: "img/Collares/PerlaVerde/img1.jpeg", categoria: "Collares", tipo: "Plata 925", imagenes: [
+  "img/Collares/PerlaVerde/img1.jpeg",
+  "img/Collares/PerlaVerde/img2.jpeg",
+  "img/Collares/PerlaVerde/img3.jpeg",
+]},
+  { nombre: "Collar Punto de Luz", precio: 2950,imagen: "img/Collares/PuntoLuz/img1.jpeg", categoria: "Collares", tipo: "Plata 925", imagenes: [
+  "img/Collares/PuntoLuz/img1.jpeg",
+  "img/Collares/PuntoLuz/img2.jpeg",
+  "img/Collares/PuntoLuz/img3.jpeg",
+]},
+  { nombre: "Collar Pandora", precio: 2406,imagen: "img/Collares/Pandora/img1.jpeg", categoria: "Collares", tipo: "Plata 925", imagenes: [
+  "img/Collares/Pandora/img1.jpeg",
+  "img/Collares/Pandora/img2.jpeg",
+]},
   { nombre: "Aros de plata embutidos", precio: 884,imagen: "img/Aretes/ArosEmbutidos/img1.jpeg", categoria: "Aretes", tipo: "Plata 925", imagenes: [
   "img/Aretes/ArosEmbutidos/img1.jpeg",
 ]},
