@@ -94,6 +94,27 @@ const productos = [
   "img/anillos/PuntoLuz/img2.jpeg",
   "img/anillos/PuntoLuz/img3.jpeg",
 ]},
+  { nombre: "Anillo Sin Fin", precio: 2096,imagen: "img/anillos/SinFin/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/SinFin/img1.jpeg",
+  "img/anillos/SinFin/img2.jpeg",
+  "img/anillos/SinFin/img3.jpeg",
+  "img/anillos/SinFin/img4.jpeg",
+]},
+  { nombre: "Anillo Esfera con Espiga", precio: 1416,imagen: "img/anillos/EsferaEspiga/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/EsferaEspiga/img1.jpeg",
+  "img/anillos/EsferaEspiga/img2.jpeg",
+  "img/anillos/EsferaEspiga/img3.jpeg",
+]},
+  { nombre: "Anillo Serpiente", precio: 428,imagen: "img/anillos/Serpiente/img1.jpeg", categoria: "Anillos", tipo: "Acero Blanco", imagenes: [
+  "img/anillos/Serpiente/img1.jpeg",
+  "img/anillos/Serpiente/img2.jpeg",
+  "img/anillos/Serpiente/img3.jpeg",
+]},
+  { nombre: "Anillo Nudo de Bruja", precio: 1964,imagen: "img/anillos/NudoBruja/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
+  "img/anillos/NudoBruja/img1.jpeg",
+  "img/anillos/NudoBruja/img2.jpeg",
+  "img/anillos/NudoBruja/img3.jpeg",
+]},
   { nombre: "Anillo Valentino", precio: 1284,imagen: "img/anillos/Valentino/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
   "img/anillos/Valentino/img1.jpeg",
   "img/anillos/Valentino/img2.jpeg",
