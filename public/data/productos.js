@@ -24,6 +24,22 @@ const productos = [
   "img/anillos/CruzInfinito/img2.jpeg",
   "img/anillos/CruzInfinito/img3.jpeg",
 ]},
+  { nombre: "Aros de plata embutidos", precio: 884,imagen: "img/Aretes/ArosEmbutidos/img1.jpeg", categoria: "Aretes", tipo: "Plata 925", imagenes: [
+  "img/Aretes/ArosEmbutidos/img1.jpeg",
+]},
+  { nombre: "Caravanas de Sol", precio: 1624,imagen: "img/Aretes/CaravanasSol/img1.jpeg", categoria: "Aretes", tipo: "Plata 925", imagenes: [
+  "img/Aretes/CaravanasSol/img1.jpeg",
+  "img/Aretes/CaravanasSol/img2.jpeg",
+]},
+  { nombre: "Aritos Chicos", precio: 1386,imagen: "img/Aretes/ArosChicos/img1.jpeg", categoria: "Aretes", tipo: "Plata 925", imagenes: [
+  "img/Aretes/ArosChicos/img1.jpeg",
+  "img/Aretes/ArosChicos/img2.jpeg",
+    "img/Aretes/ArosChicos/img3.jpeg",
+  ]},
+    { nombre: "Aros Bombé", precio: 1239,imagen: "img/Aretes/ArosBombe/img1.jpeg", categoria: "Aretes", tipo: "Plata 925", imagenes: [
+    "img/Aretes/ArosBombe/img1.jpeg",
+    "img/Aretes/ArosBombe/img2.jpeg",
+]},
   { nombre: "Pulsera pop corn", precio: 2932, imagen: "img/Pulseras/popcorn/img1.jpeg", categoria: "Pulseras", tipo: "Plata 925", imagenes: [
   "img/Pulseras/popcorn/img1.jpeg",
   "img/Pulseras/popcorn/img2.jpeg",
