@@ -40,6 +40,35 @@ const productos = [
     "img/Aretes/ArosBombe/img1.jpeg",
     "img/Aretes/ArosBombe/img2.jpeg",
 ]},
+  { nombre: "Aros Chicos con Brillo", precio: 2440,imagen: "img/Aretes/ArosChicosBrillo/img1.jpeg", categoria: "Aretes", tipo: "Plata 925", imagenes: [
+  "img/Aretes/ArosChicosBrillo/img1.jpeg",
+  "img/Aretes/ArosChicosBrillo/img2.jpeg",
+  "img/Aretes/ArosChicosBrillo/img3.jpeg",
+]},
+    { nombre: "Pulsera Corazon", precio: 577, imagen: "img/Pulseras/PulseraCorazon/img1.jpeg", categoria: "Pulseras", tipo: "Acero Blanco", imagenes: [
+  "img/Pulseras/PulseraCorazon/img1.jpeg",
+  "img/Pulseras/PulseraCorazon/img2.jpeg",
+  "img/Pulseras/PulseraCorazon/img3.jpeg",
+] },
+  { nombre: "Pulsera de Hombre", precio: 373, imagen: "img/Pulseras/PulseraHombre/img1.jpeg", categoria: "Pulseras", tipo: "Acero Quirúrgico", imagenes: [
+  "img/Pulseras/PulseraHombre/img1.jpeg",
+  "img/Pulseras/PulseraHombre/img2.jpeg",
+] },
+  { nombre: "Pulsera de Hombre Gruesa", precio: 447, imagen: "img/Pulseras/PulseraHombreGruesa/img1.jpeg", categoria: "Pulseras", tipo: "Acero Quirúrgico", imagenes: [
+  "img/Pulseras/PulseraHombreGruesa/img1.jpeg",
+  "img/Pulseras/PulseraHombreGruesa/img2.jpeg",
+  "img/Pulseras/PulseraHombreGruesa/img3.jpeg",
+] },
+  { nombre: "Pulsera con Esfera para charms", precio: 577, imagen: "img/Pulseras/PulseraEsfera/img1.jpeg", categoria: "Pulseras", tipo: "Acero Blanco", imagenes: [
+  "img/Pulseras/PulseraEsfera/img1.jpeg",
+  "img/Pulseras/PulseraEsfera/img2.jpeg",
+  "img/Pulseras/PulseraEsfera/img3.jpeg",
+] },
+  { nombre: "Pulsera con corazon para charms", precio: 577, imagen: "img/Pulseras/PulseraCorazonCharms/img1.jpeg", categoria: "Pulseras", tipo: "Acero Blanco", imagenes: [
+  "img/Pulseras/PulseraCorazonCharms/img1.jpeg",
+  "img/Pulseras/PulseraCorazonCharms/img2.jpeg",
+  "img/Pulseras/PulseraCorazonCharms/img3.jpeg",
+] },
   { nombre: "Pulsera pop corn", precio: 2932, imagen: "img/Pulseras/popcorn/img1.jpeg", categoria: "Pulseras", tipo: "Plata 925", imagenes: [
   "img/Pulseras/popcorn/img1.jpeg",
   "img/Pulseras/popcorn/img2.jpeg",

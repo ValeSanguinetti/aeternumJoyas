@@ -90,7 +90,7 @@ function cerrarModalProducto() {
 // Productos UI
 function renderProductos() {
   contenedorProductos.innerHTML = "";
-
+console.log("TOTAL PRODUCTOS:", productos.length);
   const filtrados = categoriaActiva === "Todos"
     ? productos
     : productos.filter(p => p.categoria === categoriaActiva);
