@@ -1,4 +1,28 @@
 const productos = [
+  {
+  nombre: "Anillos Enchapados (Promo: 1 x $300 o 2x$450)",
+  precio: 300,
+  imagen: "img/anillos/Enchapados/img1.jpeg",
+  categoria: "Anillos",
+  tipo: "Enchapado",
+  descripcion: "1 por $300 o 2 por $450, elegir modelos por whatsapp.",
+  imagenes: [ 
+    "img/anillos/Enchapados/img1.jpeg",
+    "img/anillos/Enchapados/img2.jpeg",
+    "img/anillos/Enchapados/img3.jpeg",
+    "img/anillos/Enchapados/img4.jpeg",
+    "img/anillos/Enchapados/img5.jpeg",
+    "img/anillos/Enchapados/img6.jpeg",
+    "img/anillos/Enchapados/img7.jpeg",
+    "img/anillos/Enchapados/img8.jpeg",
+    "img/anillos/Enchapados/img9.jpeg",
+    "img/anillos/Enchapados/img10.jpeg",
+    "img/anillos/Enchapados/img11.jpeg",
+    "img/anillos/Enchapados/img12.jpeg",
+    "img/anillos/Enchapados/img13.jpeg",
+    "img/anillos/Enchapados/img14.jpeg",
+   ]
+},
   { nombre: "Anillo Flor de Resina", precio: 1938,imagen: "img/anillos/florResina/img1.jpeg", categoria: "Anillos", tipo: "Plata 925", imagenes: [
   "img/anillos/florResina/img1.jpeg",
   "img/anillos/florResina/img2.jpeg",

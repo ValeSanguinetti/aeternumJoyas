@@ -62,7 +62,14 @@ function abrirModalProducto(producto) {
   document.getElementById("modalNombre").textContent = producto.nombre;
   document.getElementById("modalPrecio").textContent = "$" + producto.precio;
   document.getElementById("modalTipo").textContent = producto.tipo;
+const desc = document.getElementById("modalDescripcion");
 
+if (producto.descripcion) {
+  desc.textContent = producto.descripcion;
+  desc.style.display = "block";
+} else {
+  desc.style.display = "none";
+}
   const btn = document.getElementById("modalBtn");
   btn.onclick = () => {
     agregarAlCarrito(producto);
