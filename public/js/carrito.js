@@ -249,14 +249,16 @@ function cerrarModalProducto() {
     rutaAnterior
   );
 
-  // Recuperamos la página anterior
+  // Primero detectamos la ruta
+  detectarRuta();
+
+  // Después restauramos la página donde estaba el usuario
   paginaActual = paginaAnterior;
 
   // Actualizamos SEO
   actualizarSEO();
 
   // Actualizamos la interfaz
-  detectarRuta();
   renderCategorias();
   renderProductos();
 }
