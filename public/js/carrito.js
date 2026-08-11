@@ -47,6 +47,11 @@ function crearSlug(texto) {
 function crearSlugProducto(producto) {
   return `${crearSlug(producto.nombre)}-${crearSlug(producto.tipo)}`;
 }
+function rutaImagen(ruta) {
+  return ruta.startsWith("/")
+    ? ruta
+    : "/" + ruta;
+}
 // Categorías UI
 function renderCategorias() {
 
@@ -162,29 +167,54 @@ function actualizarSEO() {
   );
 }
 function abrirModalProducto(producto) {
+
   const modal = document.getElementById("modalProducto");
 
-  imagenesProducto = producto.imagenes || [producto.imagen];
+  imagenesProducto =
+    producto.imagenes || [producto.imagen];
+
   indiceImagen = 0;
 
- const modalImg = document.getElementById("modalImg");
+  const modalImg =
+    document.getElementById("modalImg");
 
-modalImg.src = imagenesProducto[indiceImagen];
-modalImg.alt = `${producto.nombre} ${producto.tipo} Aeternum Uruguay`;
-  document.getElementById("modalNombre").textContent = producto.nombre;
-  document.getElementById("modalPrecio").textContent = "$" + producto.precio;
-  document.getElementById("modalTipo").textContent = producto.tipo;
-const desc = document.getElementById("modalDescripcion");
+  modalImg.src =
+    rutaImagen(imagenesProducto[indiceImagen]);
 
-if (producto.descripcion) {
-  desc.textContent = producto.descripcion;
-  desc.style.display = "block";
-} else {
-  desc.style.display = "none";
-}
-  const btn = document.getElementById("modalBtn");
+  modalImg.alt =
+    `${producto.nombre} ${producto.tipo} Aeternum Uruguay`;
+
+  document.getElementById("modalNombre").textContent =
+    producto.nombre;
+
+  document.getElementById("modalPrecio").textContent =
+    "$" + producto.precio;
+
+  document.getElementById("modalTipo").textContent =
+    producto.tipo;
+
+  const desc =
+    document.getElementById("modalDescripcion");
+
+  if (producto.descripcion) {
+
+    desc.textContent =
+      producto.descripcion;
+
+    desc.style.display = "block";
+
+  } else {
+
+    desc.style.display = "none";
+  }
+
+  const btn =
+    document.getElementById("modalBtn");
+
   btn.onclick = () => {
+
     agregarAlCarrito(producto);
+
     cerrarModalProducto();
   };
 
@@ -193,14 +223,18 @@ if (producto.descripcion) {
 function nextImg() {
   if (indiceImagen < imagenesProducto.length - 1) {
     indiceImagen++;
-    document.getElementById("modalImg").src = imagenesProducto[indiceImagen];
+
+    document.getElementById("modalImg").src =
+      rutaImagen(imagenesProducto[indiceImagen]);
   }
 }
 
 function prevImg() {
   if (indiceImagen > 0) {
     indiceImagen--;
-    document.getElementById("modalImg").src = imagenesProducto[indiceImagen];
+
+    document.getElementById("modalImg").src =
+      rutaImagen(imagenesProducto[indiceImagen]);
   }
 }
 function cerrarModalProducto() {
@@ -245,7 +279,7 @@ function renderProductos() {
 
     enlace.innerHTML = `
       <img 
-        src="${p.imagen}" 
+        src="${rutaImagen(p.imagen)}"
         class="img-card"
         alt="${p.nombre} ${p.tipo} Aeternum Uruguay"
       >
@@ -302,18 +336,22 @@ function detectarRuta() {
   // HOME
   if (ruta === "/") {
     categoriaActiva = "Todos";
+    paginaActual = 1;
     return;
   }
 
   // CATEGORÍAS
   const categoriaEncontrada = categorias.find(
-    cat => cat !== "Todos" &&
-           `/${crearSlug(cat)}` === ruta
+    cat =>
+      cat !== "Todos" &&
+      `/${crearSlug(cat)}` === ruta
   );
 
   if (categoriaEncontrada) {
+
     categoriaActiva = categoriaEncontrada;
     paginaActual = 1;
+
     return;
   }
 
@@ -323,10 +361,11 @@ function detectarRuta() {
     const slug = ruta.replace("/producto/", "");
 
     const producto = productos.find(
-      p => crearSlug(p.nombre) === slug
+      p => crearSlugProducto(p) === slug
     );
 
     if (producto) {
+
       categoriaActiva = producto.categoria;
       paginaActual = 1;
 
@@ -394,7 +433,11 @@ function renderCarrito() {
 
     item.innerHTML = `
       <div class="cart-item-left">
-        <img src="${p.imagen}" class="cart-img">
+        <img 
+  src="${rutaImagen(p.imagen)}" 
+  class="cart-img"
+  alt="${p.nombre} ${p.tipo} Aeternum Uruguay"
+>
         <span>${p.nombre}</span>
       </div>
 
@@ -434,6 +477,8 @@ function enviarPedido() {
 
 // INIT
 detectarRuta();
+
+actualizarSEO();
 
 renderCategorias();
 renderProductos();
