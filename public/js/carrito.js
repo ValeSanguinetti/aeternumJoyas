@@ -5,7 +5,8 @@ let paginaActual = 1;
 const productosPorPagina = 6;
 let imagenesProducto = [];
 let indiceImagen = 0;
-
+let rutaAnterior = "/";
+let paginaAnterior = 1;
 // DOM
 const contenedorProductos = document.getElementById("productos");
 const contenedorCategorias = document.getElementById("categorias");
@@ -238,7 +239,26 @@ function prevImg() {
   }
 }
 function cerrarModalProducto() {
+
   document.getElementById("modalProducto").classList.remove("active");
+
+  // Volvemos a la ruta anterior
+  history.pushState(
+    {},
+    "",
+    rutaAnterior
+  );
+
+  // Recuperamos la página anterior
+  paginaActual = paginaAnterior;
+
+  // Actualizamos SEO
+  actualizarSEO();
+
+  // Actualizamos la interfaz
+  detectarRuta();
+  renderCategorias();
+  renderProductos();
 }
 // Productos UI
 function renderProductos() {
@@ -293,21 +313,24 @@ function renderProductos() {
       </p>
     `;
 
-    enlace.addEventListener("click", (e) => {
+enlace.addEventListener("click", (e) => {
 
-      e.preventDefault();
+  e.preventDefault();
 
-      history.pushState(
-        {},
-        "",
-        rutaProducto
-      );
+  // Guardamos dónde estaba el usuario
+  rutaAnterior = window.location.pathname;
+  paginaAnterior = paginaActual;
 
-      actualizarSEO();
+  history.pushState(
+    {},
+    "",
+    rutaProducto
+  );
 
-      abrirModalProducto(p);
-    });
+  actualizarSEO();
 
+  abrirModalProducto(p);
+});
     div.appendChild(enlace);
 
     const btn = document.createElement("button");
@@ -356,24 +379,24 @@ function detectarRuta() {
   }
 
   // PRODUCTO
-  if (ruta.startsWith("/producto/")) {
+if (ruta.startsWith("/producto/")) {
 
-    const slug = ruta.replace("/producto/", "");
+  const slug = ruta.replace("/producto/", "");
 
-    const producto = productos.find(
-      p => crearSlugProducto(p) === slug
-    );
+  const producto = productos.find(
+    p => crearSlugProducto(p) === slug
+  );
 
-    if (producto) {
+  if (producto) {
 
-      categoriaActiva = producto.categoria;
-      paginaActual = 1;
+    categoriaActiva = producto.categoria;
+    paginaActual = 1;
 
-      setTimeout(() => {
-        abrirModalProducto(producto);
-      }, 0);
-    }
+    setTimeout(() => {
+      abrirModalProducto(producto);
+    }, 0);
   }
+}
 }
 function renderPaginacion(totalProductos) {
   let paginacion = document.getElementById("paginacion");
