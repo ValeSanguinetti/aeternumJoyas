@@ -9,7 +9,16 @@ let indiceImagen = 0;
 // DOM
 const contenedorProductos = document.getElementById("productos");
 const contenedorCategorias = document.getElementById("categorias");
+window.addEventListener("popstate", () => {
 
+  detectarRuta();
+
+  actualizarSEO();
+
+  renderCategorias();
+  renderProductos();
+
+});
 // Categorías
 const categorias = ["Todos", ...new Set(productos.map(p => p.categoria))];
 
@@ -26,31 +35,131 @@ function toggleCarrito() {
       ? "translateX(100%)"
       : "translateX(0%)";
 }
+function crearSlug(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
+function crearSlugProducto(producto) {
+  return `${crearSlug(producto.nombre)}-${crearSlug(producto.tipo)}`;
+}
 // Categorías UI
 function renderCategorias() {
+
   contenedorCategorias.innerHTML = "";
 
   categorias.forEach(cat => {
-    const btn = document.createElement("button");
 
-    btn.textContent = cat;
+    const enlace = document.createElement("a");
 
-    btn.className = "cat-btn " +
+    enlace.textContent = cat;
+
+    enlace.className =
+      "cat-btn " +
       (categoriaActiva === cat
         ? "cat-btn-active"
         : "cat-btn-inactive");
 
+    const nuevaRuta =
+      cat === "Todos"
+        ? "/"
+        : `/${crearSlug(cat)}`;
 
-   btn.onclick = () => {
-  categoriaActiva = cat;
-  paginaActual = 1; 
-  renderCategorias();
-  renderProductos();
-};
+    enlace.href = nuevaRuta;
 
-    contenedorCategorias.appendChild(btn);
+    enlace.addEventListener("click", (e) => {
+
+      e.preventDefault();
+
+      categoriaActiva = cat;
+      paginaActual = 1;
+
+      history.pushState({}, "", nuevaRuta);
+
+      actualizarSEO();
+
+      renderCategorias();
+      renderProductos();
+    });
+
+    contenedorCategorias.appendChild(enlace);
   });
+}
+function actualizarSEO() {
+
+  const ruta = window.location.pathname;
+
+  const title = document.querySelector("title");
+  const description = document.querySelector('meta[name="description"]');
+  const canonical = document.querySelector('link[rel="canonical"]');
+
+  let nuevoTitulo =
+    "Aeternum | Joyas y Accesorios Elegantes en Uruguay";
+
+  let nuevaDescripcion =
+    "Descubrí joyas de plata 925 y accesorios elegantes en Aeternum. Aros, collares, anillos y pulseras con envíos a todo Uruguay.";
+
+  // HOME
+  if (ruta === "/") {
+
+    nuevoTitulo =
+      "Aeternum | Joyas de Plata 925 y Accesorios en Uruguay";
+
+    nuevaDescripcion =
+      "Comprá joyas de plata 925 y accesorios en Uruguay. Aros, collares, anillos y pulseras de diseños elegantes en Aeternum, con envíos a todo el país.";
+  }
+
+  // CATEGORÍAS
+  const categoria = categorias.find(
+    cat =>
+      cat !== "Todos" &&
+      `/${crearSlug(cat)}` === ruta
+  );
+
+  if (categoria) {
+
+    nuevoTitulo =
+      `${categoria} en Uruguay | Joyas y Accesorios | Aeternum`;
+
+    nuevaDescripcion =
+      `Descubrí ${categoria.toLowerCase()} en Aeternum. Diseños elegantes en plata 925, acero y otros materiales, con envíos a todo Uruguay.`;
+  }
+
+  // PRODUCTOS
+  if (ruta.startsWith("/producto/")) {
+
+    const slug = ruta.replace("/producto/", "");
+
+    const producto = productos.find(
+      p => crearSlugProducto(p) === slug
+    );
+
+    if (producto) {
+
+      nuevoTitulo =
+        `${producto.nombre} | ${producto.tipo} | Aeternum`;
+
+      nuevaDescripcion =
+        `${producto.nombre} de ${producto.tipo}. Descubrí este diseño en Aeternum, joyas y accesorios en Uruguay.`;
+
+      // Si tiene descripción propia, la usamos
+      if (producto.descripcion) {
+        nuevaDescripcion = producto.descripcion;
+      }
+    }
+  }
+
+  title.textContent = nuevoTitulo;
+  description.setAttribute("content", nuevaDescripcion);
+
+  canonical.setAttribute(
+    "href",
+    `https://www.aeternumuy.com${ruta}`
+  );
 }
 function abrirModalProducto(producto) {
   const modal = document.getElementById("modalProducto");
@@ -58,7 +167,10 @@ function abrirModalProducto(producto) {
   imagenesProducto = producto.imagenes || [producto.imagen];
   indiceImagen = 0;
 
-  document.getElementById("modalImg").src = imagenesProducto[indiceImagen];
+ const modalImg = document.getElementById("modalImg");
+
+modalImg.src = imagenesProducto[indiceImagen];
+modalImg.alt = `${producto.nombre} ${producto.tipo} Aeternum Uruguay`;
   document.getElementById("modalNombre").textContent = producto.nombre;
   document.getElementById("modalPrecio").textContent = "$" + producto.precio;
   document.getElementById("modalTipo").textContent = producto.tipo;
@@ -96,44 +208,134 @@ function cerrarModalProducto() {
 }
 // Productos UI
 function renderProductos() {
-  contenedorProductos.innerHTML = "";
-console.log("TOTAL PRODUCTOS:", productos.length);
-  const filtrados = categoriaActiva === "Todos"
-    ? productos
-    : productos.filter(p => p.categoria === categoriaActiva);
 
-  // PAGINACIÓN
-  const inicio = (paginaActual - 1) * productosPorPagina;
-  const fin = inicio + productosPorPagina;
-  const productosPagina = filtrados.slice(inicio, fin);
+  contenedorProductos.innerHTML = "";
+
+  const filtrados =
+    categoriaActiva === "Todos"
+      ? productos
+      : productos.filter(
+          p => p.categoria === categoriaActiva
+        );
+
+  const inicio =
+    (paginaActual - 1) * productosPorPagina;
+
+  const fin =
+    inicio + productosPorPagina;
+
+  const productosPagina =
+    filtrados.slice(inicio, fin);
 
   productosPagina.forEach(p => {
+
     const div = document.createElement("div");
 
-   div.className = "product-card";
-div.onclick = () => abrirModalProducto(p);
+    div.className = "product-card";
 
-    div.innerHTML = `
-      <img src="${p.imagen}" class="img-card">
-      <h3 class="h3-card">${p.nombre}</h3>
-      <p class="p-card">$${p.precio}</p>
+    const enlace = document.createElement("a");
+
+    const rutaProducto =
+      `/producto/${crearSlugProducto(p)}`;
+
+    enlace.href = rutaProducto;
+
+    enlace.style.textDecoration = "none";
+    enlace.style.color = "inherit";
+
+    enlace.innerHTML = `
+      <img 
+        src="${p.imagen}" 
+        class="img-card"
+        alt="${p.nombre} ${p.tipo} Aeternum Uruguay"
+      >
+
+      <h3 class="h3-card">
+        ${p.nombre}
+      </h3>
+
+      <p class="p-card">
+        $${p.precio}
+      </p>
     `;
 
+    enlace.addEventListener("click", (e) => {
+
+      e.preventDefault();
+
+      history.pushState(
+        {},
+        "",
+        rutaProducto
+      );
+
+      actualizarSEO();
+
+      abrirModalProducto(p);
+    });
+
+    div.appendChild(enlace);
+
     const btn = document.createElement("button");
+
     btn.textContent = "Agregar";
     btn.className = "product-btn";
+
     btn.onclick = (e) => {
-  e.stopPropagation();
-  agregarAlCarrito(p);
-};
+
+      e.stopPropagation();
+
+      agregarAlCarrito(p);
+    };
 
     div.appendChild(btn);
+
     contenedorProductos.appendChild(div);
   });
 
   renderPaginacion(filtrados.length);
 }
+function detectarRuta() {
 
+  const ruta = window.location.pathname;
+
+  // HOME
+  if (ruta === "/") {
+    categoriaActiva = "Todos";
+    return;
+  }
+
+  // CATEGORÍAS
+  const categoriaEncontrada = categorias.find(
+    cat => cat !== "Todos" &&
+           `/${crearSlug(cat)}` === ruta
+  );
+
+  if (categoriaEncontrada) {
+    categoriaActiva = categoriaEncontrada;
+    paginaActual = 1;
+    return;
+  }
+
+  // PRODUCTO
+  if (ruta.startsWith("/producto/")) {
+
+    const slug = ruta.replace("/producto/", "");
+
+    const producto = productos.find(
+      p => crearSlug(p.nombre) === slug
+    );
+
+    if (producto) {
+      categoriaActiva = producto.categoria;
+      paginaActual = 1;
+
+      setTimeout(() => {
+        abrirModalProducto(producto);
+      }, 0);
+    }
+  }
+}
 function renderPaginacion(totalProductos) {
   let paginacion = document.getElementById("paginacion");
 
@@ -231,6 +433,8 @@ function enviarPedido() {
 }
 
 // INIT
+detectarRuta();
+
 renderCategorias();
 renderProductos();
 actualizarContador();
